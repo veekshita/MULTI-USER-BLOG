@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/css/style.css" rel="stylesheet">
+        <title>Blogs</title>
+    </head>
+    <body style="background-color:lightblue">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="navbar-header">
+                            <a href="/"><h3> Blogs</h3></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if not user %}
+                                <li><a style="color:white" href="/login">Login</a></li>
+                                <li><a style="color:white" href="/signup">Register</a></li>
+                            {% elif user %}
+                                <li><a style="color:white" href="/newpost">New Post</a></li>
+                                <li><a style="color:white" href="/logout">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
